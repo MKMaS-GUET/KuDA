@@ -84,9 +84,6 @@ def train(model, train_loader, optimizer, loss_fn, epoch, metrics):
 
         y_pred.append(output.cpu())
         y_true.append(label.cpu())
-        # if 'video_0045$_$0002' in ids or 'video_0058$_$0009' in ids or 'video_0001$_$0031' in ids:
-        #     if epoch == 11:
-        #         print(ids)
 
         train_pbar.set_description('train')
         train_pbar.set_postfix({
@@ -169,9 +166,6 @@ def test(model, test_loader, optimizer, loss_fn, epoch, metrics):
             output, _ = model(inputs, None)
             y_pred.append(output.cpu())
             y_true.append(label.cpu())
-
-            # if 'video_0001$_$0031' in ids:
-            #     print(ids)
 
             loss = loss_fn(output, label)
             losses.update(loss.item(), batchsize)

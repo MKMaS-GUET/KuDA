@@ -1,0 +1,1 @@
+This folder stores the weights of BERT and the pre-training parameters of each modality after the first stage (Knowledge Inject Pretraining).
