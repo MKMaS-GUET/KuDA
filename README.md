@@ -52,6 +52,8 @@ There are two ways to obtain weights of knowledge injection:
 
 ### **Multimodal Sentiment Analysis**
 
+The parameters of the two stages need to be modified for different datasets because the data dimensions are different.
+
 ```shell
 python train.py
 ```
