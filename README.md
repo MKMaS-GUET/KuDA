@@ -40,7 +40,21 @@ The paper's basic training environment for its results is Python 3.8, Pytorch 1.
 
 ### **Knowledge Inject Pretraining**
 
+There are two ways to obtain weights of knowledge injection:
+
+1. Execute the following command to pretrain each modality:
+
+   ```shell
+   python pretrain.py
+   ```
+
+2. The weights we have previously trained can be downloaded from this [link](https://pan.baidu.com/s/1oQX_T2JX1xfPr96eehjDQg?pwd=ny4v).
+
 ### **Multimodal Sentiment Analysis**
+
+```shell
+python train.py
+```
 
 <h2 id="4">Note</h2>
 
