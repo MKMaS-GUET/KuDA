@@ -38,7 +38,7 @@ The paper's basic training environment for its results is Python 3.8, Pytorch 1.
 
 <h2 id="3">Running</h2>
 
-### **Knowledge Inject Pretraining**
+### **Stage 1: Knowledge Inject Pretraining**
 
 There are two ways to obtain weights of knowledge injection:
 
@@ -50,7 +50,7 @@ There are two ways to obtain weights of knowledge injection:
 
 2. The weights we have previously trained can be downloaded from this [link](https://pan.baidu.com/s/1oQX_T2JX1xfPr96eehjDQg?pwd=ny4v).
 
-### **Multimodal Sentiment Analysis**
+### **Stage 2: Multimodal Sentiment Analysis**
 
 The parameters of the two stages need to be modified for different datasets because the data dimensions are different.
 
