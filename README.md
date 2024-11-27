@@ -38,11 +38,13 @@ The paper's basic training environment for its results is Python 3.8, Pytorch 1.
 
 <h2 id="3">Running</h2>
 
+Note: The parameters of the two stages need to be modified for different datasets because the data lengths and dimensions are different.
+
 ### **Stage 1: Knowledge Inject Pretraining**
 
 There are two ways to obtain weights of knowledge injection:
 
-1. Execute the following command to pretrain each modality:
+1. Download the translated text file from this [link](https://pan.baidu.com/s/1RCN6CsU0AzwqUW4Uqo_oRA?pwd=26tf) (required for MOSI and MOSEI, not required for CH-SIMS and CH-SIMSv2), and execute the following command to pretrain each modality:
 
    ```shell
    python pretrain.py
@@ -51,8 +53,6 @@ There are two ways to obtain weights of knowledge injection:
 2. The weights we have previously trained can be downloaded from this [link](https://pan.baidu.com/s/1oQX_T2JX1xfPr96eehjDQg?pwd=ny4v).
 
 ### **Stage 2: Multimodal Sentiment Analysis**
-
-The parameters of the two stages need to be modified for different datasets because the data dimensions are different.
 
 ```shell
 python train.py
