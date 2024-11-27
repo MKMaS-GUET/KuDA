@@ -70,18 +70,23 @@ class MMDataset(Dataset):
         with open(self.args.dataPath, 'rb') as f:
             data = pickle.load(f)
 
-        with open('./pretrainedModel/pretrained_text.pkl', 'rb') as f2:
-            data_t_en = pickle.load(f2)
+        if self.args.datasetName in ['mosi', 'mosei']:
+            with open('./pretrainedModel/pretrained_text.pkl', 'rb') as f2:
+                data_t_en = pickle.load(f2)
 
         self.text = data[self.mode]['text_bert'].astype(np.float32)
 
         self.rawText = data[self.mode]['raw_text']
-        if self.mode == 'train':
-            self.rawText = data_t_en['en'][0:1368]
-        elif self.mode == 'valid':
-            self.rawText = data_t_en['en'][1368:1824]
-        else:
-            self.rawText = data_t_en['en'][1824:]
+
+        '''The segmentation of the following dataset is transformed according to MOSI and MOSEI
+        '''
+        if self.args.datasetName in ['mosi', 'mosei']:
+            if self.mode == 'train':
+                self.rawText = data_t_en['en'][0:1368]
+            elif self.mode == 'valid':
+                self.rawText = data_t_en['en'][1368:1824]
+            else:
+                self.rawText = data_t_en['en'][1824:]
 
         self.vision = data[self.mode]['vision'].astype(np.float32)
         self.audio = data[self.mode]['audio'].astype(np.float32)

@@ -17,8 +17,8 @@ def parse_opts():
                         help='type of pre-training labels')
 
     parser.add_argument('--dataPath', type=str, default='/opt/data/private/Project/Datasets/MSA_Datasets/SIMSv2/SIMSv2s/Processed/unaligned.pkl',
-                        help='path for checkpointing')
-    parser.add_argument('--savePath', type=str, default='./pretrainedModel/',
+                        help='path for checkpointing, changing the path based on the pre-trained dataset')
+    parser.add_argument('--savePath', type=str, default='./pretrainedModel/KnowledgeInjectPretraining/',
                         help='path for checkpointing')
 
     parser.add_argument('--seed', type=int, default=1111,
@@ -189,8 +189,6 @@ def main(i, modality):
     scheduler_warmup = get_scheduler(optimizer, opt.n_epochs[i])
 
     for epoch in range(1, opt.n_epochs[i]+1):
-        if epoch == 34:
-            break
         train_results = train(modality, model, device, dataLoader['train'], optimizer, loss_fn, epoch, metrics)
         valid_results = evaluate(modality, model, device, dataLoader['valid'], optimizer, loss_fn, epoch, metrics)
         test_results = test(modality, model, device, dataLoader['test'], optimizer, loss_fn, epoch, metrics)
@@ -203,5 +201,5 @@ def main(i, modality):
 
 
 if __name__ == '__main__':
-    for i, m in enumerate(["A"]):
-        main(i+2, modality=m)
+    for i, m in enumerate(["T", "V", "A"]):
+        main(i, modality=m)

@@ -129,6 +129,9 @@ class UniEncoder(nn.Module):
             output = torch.cat([spci_know, domain_know], dim=-1)
             return output
         else:
+            '''
+            If MOSI and MOSEI are used here, change the code to use BERT for raw text preprocessing.
+            '''
             input_ids, input_mask, segment_ids = inputs[:, 0, :].long(), inputs[:, 1, :].float(), inputs[:, 2, :].long()    # 更换原始文本，使用tokenizer
             hidden_states = self.model(
                 input_ids=input_ids,

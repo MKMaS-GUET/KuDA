@@ -16,7 +16,7 @@ def parse_opts():
             dict(name='--seq_lens',
                  default=[39, 55, 400],
                  type=list,
-                 help=' '),
+                 help='the length of T, V, A modalities; sims: [39, 55, 400]; simsv2: []; mosi: []; mosei: []'),
             dict(name='--num_workers',
                  default=8,
                  type=int,
