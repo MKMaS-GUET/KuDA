@@ -50,9 +50,9 @@ class KMSA(nn.Module):
 
 def build_model(opt):
     if 'sims' in opt.datasetName:
-        l_pretrained = './BERT/bert-base-chinese'
+        l_pretrained = './pretrainedModel/BERT/bert-base-chinese'
     else:
-        l_pretrained = './BERT/bert-base-uncased'
+        l_pretrained = './pretrainedModel/BERT/bert-base-uncased'
 
     model = KMSA(opt, dataset=opt.datasetName, bert_pretrained=l_pretrained)
 

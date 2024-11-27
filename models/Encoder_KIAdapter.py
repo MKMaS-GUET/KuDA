@@ -170,7 +170,7 @@ class UniEncoder(nn.Module):
 
 
 class UniPretrain(nn.Module):
-    def __init__(self, modality, num_patches, pretrained='./BERT/bert-base-uncased', fea_size=709, proj_fea_dim=128, drop_out=0.):
+    def __init__(self, modality, num_patches, pretrained='./pretrainedModel/BERT/bert-base-uncased', fea_size=709, proj_fea_dim=128, drop_out=0.):
         super(UniPretrain, self).__init__()
         self.m = modality
         if modality == "T":
@@ -205,7 +205,7 @@ class UniPretrain(nn.Module):
 
 
 class UnimodalEncoder(nn.Module):
-    def __init__(self, opt, bert_pretrained='./BERT/bert-base-uncased'):
+    def __init__(self, opt, bert_pretrained='./pretrainedModel/BERT/bert-base-uncased'):
         super(UnimodalEncoder, self).__init__()
         # All Encoders of Each Modality
         self.enc_t = UniPretrain(modality="T", pretrained=bert_pretrained, num_patches=opt.seq_lens[0], proj_fea_dim=768)

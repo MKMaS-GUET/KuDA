@@ -61,7 +61,7 @@ def parse_opts():
                  type=int,
                  help='Number of total epochs to run'),
             dict(name='--log_path',
-                 default='./SIMS/log',
+                 default='./log/',
                  type=str,
                  help='the logger path for save options and experience results')
         ]

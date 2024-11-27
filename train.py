@@ -27,9 +27,9 @@ def main(parse_args):
     setup_seed(opt.seed)
     model = build_model(opt).to(device)
     model.preprocess_model(pretrain_path={
-        'T': "/opt/data/private/K-MSA/SIMS/pretrainedModel/SIMS_T_MAE-0.278_Corr-0.765.pth",
-        'V': "/opt/data/private/K-MSA/SIMS/pretrainedModel/SIMS_V_MAE-0.522_Corr-0.520.pth",
-        'A': "/opt/data/private/K-MSA/SIMS/pretrainedModel/SIMS_A_MAE-0.516_Corr-0.261.pth"
+        'T': "./pretrainedModel/KnowledgeInjectPretraining/SIMS/SIMS_T_MAE-0.278_Corr-0.765.pth",
+        'V': "./pretrainedModel/KnowledgeInjectPretraining/SIMS/SIMS_V_MAE-0.522_Corr-0.520.pth",
+        'A': "./pretrainedModel/KnowledgeInjectPretraining/SIMS/SIMS_A_MAE-0.516_Corr-0.261.pth"
     })      # 加载预训练权重并冻结参数
     dataLoader = MMDataLoader(opt)
     optimizer = torch.optim.AdamW(
